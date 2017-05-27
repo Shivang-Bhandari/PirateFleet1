@@ -43,7 +43,7 @@ class HumanObject: Player, Human {
     }
     
     override func addPlayerShipsMines(_ numberOfMines: Int = 0) {
-        controlCenter.addShipsAndMines(self)
+        controlCenter.addShipsAndMines(human: self)
     }
     
     // MARK: Calculate Final Score
@@ -52,6 +52,6 @@ class HumanObject: Player, Human {
 
         let gameStats = GameStats(numberOfHitsOnEnemy: numberOfHits, numberOfMissesByHuman: numberOfMisses, enemyShipsRemaining: 5 - computer.gridViewController.numberSunk(), humanShipsSunk: gridViewController.numberSunk(), sinkBonus: 100, shipBonus: 100, guessPenalty: 10)
         
-        return "Final Score: \(controlCenter.calculateFinalScore(gameStats))"
+        return "Final Score: \(controlCenter.calculateFinalScore(gameStats: gameStats))"
     }
 }
